@@ -1,0 +1,166 @@
+{
+  "user": {
+    "name": "John Doe"
+  },
+  "company": {
+    "name": "AMREST BULGARIA LTD",
+    "brand": "Starbucks"
+  },
+  "candidates": [
+    {
+      "period": "Today",
+      "count": 14,
+      "compareText": "+15% vs yesterday",
+      "compareType": "increase",
+      "badge": 4
+    },
+    {
+      "period": "Yesterday",
+      "count": 22,
+      "compareText": "+15% vs day before",
+      "compareType": "increase",
+      "badge": null
+    },
+    {
+      "period": "Last 7 days",
+      "count": 231,
+      "compareText": "-31% vs previous period",
+      "compareType": "decrease",
+      "badge": null
+    },
+    {
+      "period": "Last Month",
+      "count": 971,
+      "compareText": "-5% vs previous period",
+      "compareType": "decrease",
+      "badge": null
+    },
+    {
+      "period": "All Time",
+      "count": 4200,
+      "displayCount": "4.2K",
+      "compareText": null,
+      "compareType": null,
+      "badge": null
+    }
+  ],
+  "requisitions": [
+    {
+      "id": 1,
+      "active": true,
+      "role": "Barista",
+      "status": "Delivering Candidates",
+      "statusType": "success",
+      "workplace": {
+        "name": "Starbucks on Broadway & Bond",
+        "location": "Manhattan, New York City"
+      },
+      "shifts": {
+        "active": 3,
+        "available": 5
+      }
+    },
+    {
+      "id": 2,
+      "active": true,
+      "role": "Barista",
+      "status": "Delivering Candidates",
+      "statusType": "success",
+      "workplace": {
+        "name": "Starbucks on 14th & Sixth",
+        "location": "Manhattan, New York City"
+      },
+      "shifts": {
+        "active": 2,
+        "available": 5
+      }
+    },
+    {
+      "id": 3,
+      "active": true,
+      "role": "Shift Manager",
+      "status": "Delivering Candidates",
+      "statusType": "success",
+      "workplace": {
+        "name": "Starbucks on NYU 4th & Washington",
+        "location": "Manhattan, New York City"
+      },
+      "shifts": {
+        "active": 3,
+        "available": 5
+      }
+    },
+    {
+      "id": 4,
+      "active": true,
+      "role": "Cleaner",
+      "status": "Delivering Candidates",
+      "statusType": "success",
+      "workplace": {
+        "name": "Starbucks on 7th Ave at Grove Street",
+        "location": "Manhattan, New York City"
+      },
+      "shifts": {
+        "active": 1,
+        "available": 5
+      }
+    },
+    {
+      "id": 5,
+      "active": false,
+      "role": "Barista",
+      "status": "Not Delivering Candidates",
+      "statusType": "warning",
+      "workplace": {
+        "name": "Starbucks on Broadway & Bond",
+        "location": "Manhattan, New York City"
+      },
+      "shifts": {
+        "active": 0,
+        "inactive": 3,
+        "available": 5
+      }
+    }
+  ],
+  "workplaces": {
+    "currentActiveWorkplaces": 7,
+    "totalWorkplaces": 25,
+    "workplaces": [
+      {
+        "name": "Starbucks Sofia City Center",
+        "location": "National Palace of Culture, Sofia",
+        "coordinates": { "lat": 42.685, "lng": 23.318 }
+      },
+      {
+        "name": "Starbucks Vitosha",
+        "location": "Vitosha Blvd, Sofia",
+        "coordinates": { "lat": 42.693, "lng": 23.319 }
+      },
+      {
+        "name": "Starbucks Mall of Sofia",
+        "location": "Mall of Sofia, Sofia",
+        "coordinates": { "lat": 42.701, "lng": 23.302 }
+      },
+      {
+        "name": "Starbucks Serdika Center",
+        "location": "Serdika Center, Sofia",
+        "coordinates": { "lat": 42.681, "lng": 23.35 }
+      },
+      {
+        "name": "Starbucks The City Garden",
+        "location": "The City Garden, Sofia",
+        "coordinates": { "lat": 42.696, "lng": 23.325 }
+      },
+      {
+        "name": "Starbucks Borisova Gradina",
+        "location": "Borisova Gradina Park, Sofia",
+        "coordinates": { "lat": 42.683, "lng": 23.334 }
+      },
+      {
+        "name": "Starbucks Hadzhi Dimitar",
+        "location": "Hadzhi Dimitar, Sofia",
+        "coordinates": { "lat": 42.708, "lng": 23.353 }
+      }
+    ]
+  }
+}
