@@ -1,4 +1,5 @@
 import js from "@eslint/js";
+import unusedImports from "eslint-plugin-unused-imports";
 import tseslint from "typescript-eslint";
 import angular from "@angular-eslint/eslint-plugin";
 import angularTemplate from "@angular-eslint/eslint-plugin-template";
@@ -6,10 +7,7 @@ import angularParser from "@angular-eslint/template-parser";
 import prettier from "eslint-config-prettier";
 
 export default tseslint.config(
-  // --- Base JS config ---
   js.configs.recommended,
-
-  // --- TypeScript / Angular ---
   {
     files: ["**/*.ts"],
     languageOptions: {
@@ -22,9 +20,21 @@ export default tseslint.config(
     },
     plugins: {
       "@angular-eslint": angular,
+      "unused-imports": unusedImports,
     },
     rules: {
       ...angular.configs.recommended.rules,
+      "no-unused-vars": "off",
+      "unused-imports/no-unused-imports": "error",
+      "unused-imports/no-unused-vars": [
+        "warn",
+        {
+          vars: "all",
+          varsIgnorePattern: "^_",
+          args: "after-used",
+          argsIgnorePattern: "^_",
+        },
+      ],
       "@angular-eslint/component-selector": [
         "error",
         { type: "element", prefix: "app", style: "kebab-case" },
@@ -33,13 +43,9 @@ export default tseslint.config(
         "error",
         { type: "attribute", prefix: "app", style: "camelCase" },
       ],
-      // Developer experience tweaks
-      "no-unused-vars": ["warn"], // don't block commits
       "no-console": "off",
     },
   },
-
-  // --- Angular Templates (.html) ---
   {
     files: ["**/*.html"],
     languageOptions: { parser: angularParser },
@@ -48,8 +54,6 @@ export default tseslint.config(
       ...angularTemplate.configs.recommended.rules,
     },
   },
-
-  // --- Jasmine tests (.spec.ts) ---
   {
     files: ["**/*.spec.ts"],
     languageOptions: {
@@ -62,8 +66,6 @@ export default tseslint.config(
       },
     },
   },
-
-  // --- Prettier compatibility & ignore paths ---
   prettier,
   {
     ignores: [

@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from '@angular/router';
-import { MatList, MatListItem, MatListModule } from '@angular/material/list';
+import { RouterModule, RouterOutlet } from '@angular/router';
+import { MatListModule } from '@angular/material/list';
 import { APP_ROUTES } from './core/routes.constants';
 import { MatButton } from '@angular/material/button';
 import { TitleCasePipe } from '@angular/common';
