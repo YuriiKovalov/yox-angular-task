@@ -1,1 +1,17 @@
-<router-outlet />
+<app-header />
+<mat-sidenav-container class="app-container">
+  <mat-sidenav mode="side" opened>
+    <mat-list role="list">
+      @for (path of routes; track path) {
+        <mat-list-item role="listitem">
+          <a mat-button [routerLink]="path" routerLinkActive="active">
+            {{ path | titlecase }}
+          </a>
+        </mat-list-item>
+      }
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet />
+  </mat-sidenav-content>
+</mat-sidenav-container>

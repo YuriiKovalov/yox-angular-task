@@ -6,6 +6,7 @@ import angularParser from "@angular-eslint/template-parser";
 import prettier from "eslint-config-prettier";
 
 export default tseslint.config(
+  // --- Base JS config ---
   js.configs.recommended,
 
   // --- TypeScript / Angular ---
@@ -16,10 +17,12 @@ export default tseslint.config(
       parserOptions: { sourceType: "module" },
       globals: {
         console: "readonly",
-        HTMLElement: "readonly"
+        HTMLElement: "readonly",
       },
     },
-    plugins: { "@angular-eslint": angular },
+    plugins: {
+      "@angular-eslint": angular,
+    },
     rules: {
       ...angular.configs.recommended.rules,
       "@angular-eslint/component-selector": [
@@ -30,10 +33,13 @@ export default tseslint.config(
         "error",
         { type: "attribute", prefix: "app", style: "camelCase" },
       ],
+      // Developer experience tweaks
+      "no-unused-vars": ["warn"], // don't block commits
+      "no-console": "off",
     },
   },
 
-  // --- Angular Templates ---
+  // --- Angular Templates (.html) ---
   {
     files: ["**/*.html"],
     languageOptions: { parser: angularParser },
@@ -43,7 +49,7 @@ export default tseslint.config(
     },
   },
 
-  // --- Jasmine test environment ---
+  // --- Jasmine tests (.spec.ts) ---
   {
     files: ["**/*.spec.ts"],
     languageOptions: {
@@ -57,7 +63,7 @@ export default tseslint.config(
     },
   },
 
-  // --- Ignore build/cache folders ---
+  // --- Prettier compatibility & ignore paths ---
   prettier,
   {
     ignores: [
@@ -66,6 +72,8 @@ export default tseslint.config(
       "**/dist/**",
       "**/build/**",
       "**/.husky/**",
+      "**/*.json",
+      "**/*.scss",
     ],
   }
 );
