@@ -19,6 +19,19 @@ import { Header } from './layout/header/header';
     TitleCasePipe,
   ],
   templateUrl: './app.html',
+  styles: [
+    `
+      .app-container {
+        display: flex;
+      }
+      .side-bar {
+        width: 200px;
+      }
+      .content {
+        flex: 1;
+      }
+    `,
+  ],
 })
 export class App {
   protected readonly routes = Object.values(APP_ROUTES);

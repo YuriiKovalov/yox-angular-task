@@ -1,46 +1,44 @@
 @use '@angular/material' as mat;
 
+$my-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: (
+      brand-family: 'Roboto, sans-serif',
+    ),
+    density: (
+      scale: 0,
+    ),
+  )
+);
+
+:root {
+  @include mat.all-component-themes($my-theme);
+}
+
 html,
 body {
   height: 100%;
   margin: 0;
+  padding: 0;
 }
 
 body {
-  @include mat.theme(
-    (
-      color: (
-        primary: mat.$azure-palette,
-        tertiary: mat.$blue-palette,
-      ),
-      typography: Roboto,
-      density: 0,
-    )
-  );
-
-  color-scheme: light;
   background-color: var(--mat-sys-surface);
   color: var(--mat-sys-on-surface);
   font: var(--mat-sys-body-medium);
 }
 
-/* Angular Material layout fix */
-mat-sidenav-container,
-mat-sidenav-content,
 .app-container {
   height: 100vh;
   display: flex;
-  flex-direction: column;
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 20px;
   width: 100%;
   box-sizing: border-box;
-}
-
-/* Optional: padding for main content */
-.app-content {
-  flex: 1;
-  padding: 16px;
-  overflow: auto;
 }

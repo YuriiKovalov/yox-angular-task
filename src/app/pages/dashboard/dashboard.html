@@ -1,14 +1,25 @@
-<app-candidates-count-card
-  [period]="'Today'"
-  [count]="10"
-  [notificationCount]="5"
-  [compareText]="'+15% vs yesterday'"
-></app-candidates-count-card>
-@for (candidate of $candidates(); track candidate.period) {
-  <app-candidates-count-card
-    [period]="candidate.period"
-    [count]="candidate.count"
-    [notificationCount]="candidate.badge ?? 0"
-    [compareText]="candidate.compareText ?? ''"
-  ></app-candidates-count-card>
-}
+<section>
+  <h1>👋 Good Morning, {{ $user()?.name }}</h1>
+  <p>Here are the number of Candidates you have received recently</p>
+
+  <div class="candidates-cards">
+    @for (candidate of $candidates(); track candidate.period) {
+      <app-candidates-count-card
+        [period]="candidate.period"
+        [count]="candidate.count"
+        [notificationCount]="candidate.badge ?? 0"
+        [compareText]="candidate.compareText ?? ''"
+      ></app-candidates-count-card>
+    }
+  </div>
+</section>
+
+<section>
+  <app-section-header-nav title="Requisitions" link="/requisitions">
+    content
+  </app-section-header-nav>
+</section>
+
+<section>
+  <app-section-header-nav title="Workplaces" link="/workplaces"> content </app-section-header-nav>
+</section>
