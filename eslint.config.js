@@ -8,6 +8,8 @@ import prettier from "eslint-config-prettier";
 
 export default tseslint.config(
   js.configs.recommended,
+
+  // --- TypeScript / Angular ---
   {
     files: ["**/*.ts"],
     languageOptions: {
@@ -24,6 +26,8 @@ export default tseslint.config(
     },
     rules: {
       ...angular.configs.recommended.rules,
+
+      // Automatically remove unused imports
       "no-unused-vars": "off",
       "unused-imports/no-unused-imports": "error",
       "unused-imports/no-unused-vars": [
@@ -35,6 +39,8 @@ export default tseslint.config(
           argsIgnorePattern: "^_",
         },
       ],
+
+      // Angular style rules
       "@angular-eslint/component-selector": [
         "error",
         { type: "element", prefix: "app", style: "kebab-case" },
@@ -43,9 +49,16 @@ export default tseslint.config(
         "error",
         { type: "attribute", prefix: "app", style: "camelCase" },
       ],
+
+      // Disable “no input rename” rule if aliasing is needed
+      "@angular-eslint/no-input-rename": "off",
+
+      // Developer experience tweaks
       "no-console": "off",
     },
   },
+
+  // --- Angular Templates (.html) ---
   {
     files: ["**/*.html"],
     languageOptions: { parser: angularParser },
@@ -54,6 +67,8 @@ export default tseslint.config(
       ...angularTemplate.configs.recommended.rules,
     },
   },
+
+  // --- Jasmine tests (.spec.ts) ---
   {
     files: ["**/*.spec.ts"],
     languageOptions: {
@@ -66,6 +81,8 @@ export default tseslint.config(
       },
     },
   },
+
+  // --- Prettier compatibility & ignore paths ---
   prettier,
   {
     ignores: [

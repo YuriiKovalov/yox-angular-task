@@ -1,1 +1,14 @@
-<p>dashboard works!</p>
+<app-candidates-count-card
+  [period]="'Today'"
+  [count]="10"
+  [notificationCount]="5"
+  [compareText]="'+15% vs yesterday'"
+></app-candidates-count-card>
+@for (candidate of $candidates(); track candidate.period) {
+  <app-candidates-count-card
+    [period]="candidate.period"
+    [count]="candidate.count"
+    [notificationCount]="candidate.badge ?? 0"
+    [compareText]="candidate.compareText ?? ''"
+  ></app-candidates-count-card>
+}
