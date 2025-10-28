@@ -1,0 +1,6 @@
+<form [formGroup]="formGroup">
+  <app-toggle-group [options]="options" formControlName="status" />
+  <app-filter-select [options]="locations" label="Location" formControlName="location" />
+  <app-filter-select [options]="roles" label="Role" formControlName="role" />
+  <app-filter-select [options]="workplaces" label="Workplace" formControlName="workplace" />
+</form>

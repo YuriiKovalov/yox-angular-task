@@ -1,3 +1,6 @@
+import { SimpleModel } from './common.models';
+import { StatusValue } from './common.types';
+
 export interface User {
   name: string;
 }
@@ -55,4 +58,11 @@ export interface DashboardData {
   candidates: CandidateStat[];
   requisitions: Requisition[];
   workplaces: WorkplacesSummary;
+}
+
+export interface RequestionsFilters {
+  status: SimpleModel<StatusValue>;
+  location: SimpleModel<string>;
+  role: SimpleModel<string>;
+  workplace: SimpleModel<string>;
 }

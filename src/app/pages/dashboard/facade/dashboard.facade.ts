@@ -3,6 +3,7 @@ import { tap } from 'rxjs';
 
 import { DashboardStore } from '../../../core/state/dashboard.store';
 import { DashboardClient } from '../../../core/client/dashboard.client';
+import { RequestionsFilters } from '../../../core/models/dashboard.models';
 
 @Injectable()
 export class DashboardFacade {
@@ -14,6 +15,7 @@ export class DashboardFacade {
   $candidates = this.store.candidates;
   $requisitions = this.store.requisitions;
   $workplaces = this.store.workplaces;
+  $requestionsFilters = this.store.requestionsFilters;
 
   loadDashboardData() {
     return this.client.getDashboardData().pipe(
@@ -25,5 +27,9 @@ export class DashboardFacade {
         this.store.updateWorkplaces(data.workplaces);
       }),
     );
+  }
+
+  updateRequestionsFilters(filters: RequestionsFilters) {
+    this.store.updateRequestionsFilters(filters);
   }
 }
