@@ -14,7 +14,7 @@ export class DashboardFacade {
   readonly $user = this.store.user;
   readonly $company = this.store.company;
   readonly $candidates = this.store.candidates;
-  readonly $requisitions = this.store.requisitions;
+  readonly $requisitionData = this.store.requisitionData;
   readonly $workplaces = this.store.workplaces;
   readonly $filters = this.store.requestionsFilters;
   readonly $loading = this.store.isLoading;
@@ -54,7 +54,7 @@ export class DashboardFacade {
   private getRequestionsPayload(filters: RequestionsFilters) {
     const { status, location, role, workplace } = filters;
     return {
-      status: status.value,
+      status: status,
       location: location.value,
       role: role.value,
       workplace: workplace.value,

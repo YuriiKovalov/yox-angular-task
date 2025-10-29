@@ -6,7 +6,7 @@ import {
   CandidateStat,
   Company,
   RequestionsPayload,
-  Requisition,
+  RequisitionData,
   User,
   WorkplacesSummary,
 } from '../models/dashboard.models';
@@ -30,8 +30,7 @@ export class DashboardClient {
   }
 
   getRequisitions(filters: RequestionsPayload) {
-    console.log('filters', filters);
-    return this.http.get<Requisition[]>('/api/requisitions');
+    return this.http.get<RequisitionData>('/api/requisitions');
   }
 
   getWorkplaces() {

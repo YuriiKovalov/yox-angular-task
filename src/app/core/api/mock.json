@@ -44,84 +44,88 @@
       "badge": null
     }
   ],
-  "requisitions": [
-    {
-      "id": 1,
-      "active": true,
-      "role": "Barista",
-      "status": "Delivering Candidates",
-      "statusType": "success",
-      "workplace": {
-        "name": "Starbucks on Broadway & Bond",
-        "location": "Manhattan, New York City"
+  "requisitions": {
+    "active": 4,
+    "inactive": 18,
+    "items": [
+      {
+        "id": 1,
+        "active": true,
+        "role": "Barista",
+        "status": "Delivering Candidates",
+        "statusType": "success",
+        "workplace": {
+          "name": "Starbucks on Broadway & Bond",
+          "location": "Manhattan, New York City"
+        },
+        "shifts": {
+          "active": 3,
+          "available": 5
+        }
       },
-      "shifts": {
-        "active": 3,
-        "available": 5
-      }
-    },
-    {
-      "id": 2,
-      "active": true,
-      "role": "Barista",
-      "status": "Delivering Candidates",
-      "statusType": "success",
-      "workplace": {
-        "name": "Starbucks on 14th & Sixth",
-        "location": "Manhattan, New York City"
+      {
+        "id": 2,
+        "active": true,
+        "role": "Barista",
+        "status": "Delivering Candidates",
+        "statusType": "success",
+        "workplace": {
+          "name": "Starbucks on 14th & Sixth",
+          "location": "Manhattan, New York City"
+        },
+        "shifts": {
+          "active": 2,
+          "available": 5
+        }
       },
-      "shifts": {
-        "active": 2,
-        "available": 5
-      }
-    },
-    {
-      "id": 3,
-      "active": true,
-      "role": "Shift Manager",
-      "status": "Delivering Candidates",
-      "statusType": "success",
-      "workplace": {
-        "name": "Starbucks on NYU 4th & Washington",
-        "location": "Manhattan, New York City"
+      {
+        "id": 3,
+        "active": true,
+        "role": "Shift Manager",
+        "status": "Delivering Candidates",
+        "statusType": "success",
+        "workplace": {
+          "name": "Starbucks on NYU 4th & Washington",
+          "location": "Manhattan, New York City"
+        },
+        "shifts": {
+          "active": 3,
+          "available": 5
+        }
       },
-      "shifts": {
-        "active": 3,
-        "available": 5
-      }
-    },
-    {
-      "id": 4,
-      "active": true,
-      "role": "Cleaner",
-      "status": "Delivering Candidates",
-      "statusType": "success",
-      "workplace": {
-        "name": "Starbucks on 7th Ave at Grove Street",
-        "location": "Manhattan, New York City"
+      {
+        "id": 4,
+        "active": true,
+        "role": "Cleaner",
+        "status": "Delivering Candidates",
+        "statusType": "success",
+        "workplace": {
+          "name": "Starbucks on 7th Ave at Grove Street",
+          "location": "Manhattan, New York City"
+        },
+        "shifts": {
+          "active": 1,
+          "available": 5
+        }
       },
-      "shifts": {
-        "active": 1,
-        "available": 5
+      {
+        "id": 5,
+        "active": false,
+        "role": "Barista",
+        "status": "Not Delivering Candidates",
+        "statusType": "warning",
+        "workplace": {
+          "name": "Starbucks on Broadway & Bond",
+          "location": "Manhattan, New York City"
+        },
+        "shifts": {
+          "active": 0,
+          "inactive": 3,
+          "available": 5
+        }
       }
-    },
-    {
-      "id": 5,
-      "active": false,
-      "role": "Barista",
-      "status": "Not Delivering Candidates",
-      "statusType": "warning",
-      "workplace": {
-        "name": "Starbucks on Broadway & Bond",
-        "location": "Manhattan, New York City"
-      },
-      "shifts": {
-        "active": 0,
-        "inactive": 3,
-        "available": 5
-      }
-    }
-  ],
+    ]
+  },
   "workplaces": {
     "currentActiveWorkplaces": 7,
     "totalWorkplaces": 25,

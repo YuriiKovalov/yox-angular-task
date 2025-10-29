@@ -1,10 +1,9 @@
 import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-section-header-nav',
-  imports: [RouterLink, MatButton],
+  imports: [RouterLink],
   templateUrl: './section-header-nav.html',
   styleUrl: './section-header-nav.scss',
 })

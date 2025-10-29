@@ -14,7 +14,7 @@ import {
   REQUESTIONS_WORKPLACES,
 } from '../../../../core/constants/requestions-filters.constants';
 import { StatusValue } from '../../../../core/models/common.types';
-import { SimpleModel } from '../../../../core/models/common.models';
+import { CountableModel, SimpleModel } from '../../../../core/models/common.models';
 import { RequestionsTable } from '../requestions-table/requestions-table';
 
 @Component({
@@ -27,16 +27,16 @@ export class RequestionsOverview {
   private facade = inject(DashboardFacade);
 
   readonly $requestionsFilters = this.facade.$filters;
-  readonly $requisitions = this.facade.$requisitions;
+  readonly $requisitionData = this.facade.$requisitionData;
   readonly $loading = this.facade.$loading;
 
-  readonly options = REQUESTIONS_STATUS;
+  readonly options = this.getRequisitionsOptions();
   readonly locations = REQUESTIONS_LOCATIONS;
   readonly roles = REQUESTIONS_ROLES;
   readonly workplaces = REQUESTIONS_WORKPLACES;
 
   formGroup = new FormGroup({
-    status: new FormControl<SimpleModel<StatusValue>>(this.$requestionsFilters().status),
+    status: new FormControl<StatusValue>(this.options[0].value),
     location: new FormControl<SimpleModel<string>>(this.$requestionsFilters().location),
     role: new FormControl<SimpleModel<string>>(this.$requestionsFilters().role),
     workplace: new FormControl<SimpleModel<string>>(this.$requestionsFilters().workplace),
@@ -50,5 +50,12 @@ export class RequestionsOverview {
     this.formGroup.valueChanges.pipe(debounceTime(300), takeUntilDestroyed()).subscribe((value) => {
       this.facade.updateRequestionsFilters(value as RequestionsFilters);
     });
+  }
+
+  getRequisitionsOptions(): CountableModel<StatusValue>[] {
+    return REQUESTIONS_STATUS.map((item) => ({
+      ...item,
+      count: this.$requisitionData()?.[item.value] ?? 0,
+    }));
   }
 }

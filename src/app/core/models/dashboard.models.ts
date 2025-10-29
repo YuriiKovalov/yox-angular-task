@@ -46,6 +46,12 @@ export interface Requisition {
   shifts: Shifts;
 }
 
+export interface RequisitionData {
+  active: number;
+  inactive: number;
+  items: Requisition[];
+}
+
 export interface WorkplacesSummary {
   currentActiveWorkplaces: number;
   totalWorkplaces: number;
@@ -54,12 +60,12 @@ export interface WorkplacesSummary {
 
 export interface DashboardData {
   candidates: CandidateStat[];
-  requisitions: Requisition[];
+  requisitions: RequisitionData;
   workplaces: WorkplacesSummary;
 }
 
 export interface RequestionsFilters {
-  status: SimpleModel<StatusValue>;
+  status: StatusValue;
   location: SimpleModel<string>;
   role: SimpleModel<string>;
   workplace: SimpleModel<string>;

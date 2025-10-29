@@ -4,7 +4,7 @@ import {
   CandidateStat,
   Company,
   RequestionsFilters,
-  Requisition,
+  RequisitionData,
   User,
   WorkplacesSummary,
 } from '../models/dashboard.models';
@@ -17,7 +17,7 @@ import {
 
 type State = {
   candidates: Array<CandidateStat>;
-  requisitions: Array<Requisition>;
+  requisitionData: RequisitionData | null;
   workplaces: WorkplacesSummary | null;
   user: User | null;
   company: Company | null;
@@ -26,7 +26,7 @@ type State = {
 };
 
 const initialRequestionsFilters: RequestionsFilters = {
-  status: REQUESTIONS_STATUS[0],
+  status: REQUESTIONS_STATUS[0].value,
   location: REQUESTIONS_LOCATIONS[0],
   role: REQUESTIONS_ROLES[0],
   workplace: REQUESTIONS_WORKPLACES[0],
@@ -34,7 +34,7 @@ const initialRequestionsFilters: RequestionsFilters = {
 
 const initialState: State = {
   candidates: [],
-  requisitions: [],
+  requisitionData: null,
   workplaces: null,
   user: null,
   company: null,
@@ -45,8 +45,8 @@ const initialState: State = {
 export const DashboardStore = signalStore(
   withState(initialState),
   withMethods((store) => ({
-    updateRequisitions(requisitions: Array<Requisition>) {
-      patchState(store, { requisitions });
+    updateRequisitions(requisitionData: RequisitionData) {
+      patchState(store, { requisitionData });
     },
     updateWorkplaces(workplaces: WorkplacesSummary) {
       patchState(store, { workplaces });
