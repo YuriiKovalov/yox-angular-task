@@ -1,8 +1,12 @@
 <form [formGroup]="formGroup">
-  <app-toggle-group [options]="options" formControlName="status" />
-  <app-filter-select [options]="locations" label="Location" formControlName="location" />
-  <app-filter-select [options]="roles" label="Role" formControlName="role" />
-  <app-filter-select [options]="workplaces" label="Workplace" formControlName="workplace" />
+  <div class="filters">
+    <app-toggle-group [options]="options" formControlName="status" />
+    <div class="filters-row">
+      <app-filter-select [options]="locations" label="Location" formControlName="location" />
+      <app-filter-select [options]="roles" label="Role" formControlName="role" />
+      <app-filter-select [options]="workplaces" label="Workplace" formControlName="workplace" />
+    </div>
+  </div>
 </form>
 
 <app-requestions-table [dataSource]="$requisitions()" />

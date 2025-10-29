@@ -1,6 +1,9 @@
 <div class="section-header-nav">
   <h1>{{ $title() }}</h1>
-  <a matButton [routerLink]="$link()" target="_blank">{{ $linkText() }}</a>
+  <a [routerLink]="$link()" target="_blank"
+    >{{ $linkText() }}
+    <img src="assets/icons/arrow-right.svg" alt="Arrow right" width="24px" height="24px"
+  /></a>
 </div>
 
 <ng-content></ng-content>

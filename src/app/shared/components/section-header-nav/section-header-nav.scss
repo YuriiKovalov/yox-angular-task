@@ -3,3 +3,18 @@
   justify-content: space-between;
   align-items: center;
 }
+
+h1 {
+  margin-bottom: 20px;
+}
+
+a {
+  font-weight: 500;
+  font-size: 16px;
+
+  color: #000000;
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+}
