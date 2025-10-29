@@ -5,6 +5,7 @@ import { forkJoin } from 'rxjs';
 import {
   CandidateStat,
   Company,
+  RequestionsPayload,
   Requisition,
   User,
   WorkplacesSummary,
@@ -28,7 +29,8 @@ export class DashboardClient {
     return this.http.get<CandidateStat[]>('/api/candidates');
   }
 
-  getRequisitions() {
+  getRequisitions(filters: RequestionsPayload) {
+    console.log('filters', filters);
     return this.http.get<Requisition[]>('/api/requisitions');
   }
 
@@ -36,12 +38,12 @@ export class DashboardClient {
     return this.http.get<WorkplacesSummary>('/api/workplaces');
   }
 
-  getDashboardData() {
+  getDashboardData(filters: RequestionsPayload) {
     return forkJoin({
       user: this.getUser(),
       company: this.getCompany(),
       candidates: this.getCandidates(),
-      requisitions: this.getRequisitions(),
+      requisitions: this.getRequisitions(filters),
       workplaces: this.getWorkplaces(),
     });
   }

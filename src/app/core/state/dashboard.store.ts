@@ -22,6 +22,7 @@ type State = {
   user: User | null;
   company: Company | null;
   requestionsFilters: RequestionsFilters;
+  isLoading: boolean;
 };
 
 const initialRequestionsFilters: RequestionsFilters = {
@@ -38,6 +39,7 @@ const initialState: State = {
   user: null,
   company: null,
   requestionsFilters: initialRequestionsFilters,
+  isLoading: false,
 };
 
 export const DashboardStore = signalStore(
@@ -60,6 +62,9 @@ export const DashboardStore = signalStore(
     },
     updateRequestionsFilters(requestionsFilters: RequestionsFilters) {
       patchState(store, { requestionsFilters });
+    },
+    updateLoader(isLoading: boolean) {
+      patchState(store, { isLoading });
     },
   })),
 );

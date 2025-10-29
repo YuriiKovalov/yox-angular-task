@@ -66,3 +66,10 @@ export interface RequestionsFilters {
   role: SimpleModel<string>;
   workplace: SimpleModel<string>;
 }
+
+export interface RequestionsPayload {
+  status: StatusValue;
+  location: string;
+  role: string;
+  workplace: string;
+}

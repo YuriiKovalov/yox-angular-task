@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { debounceTime } from 'rxjs/operators';
 
 import { ToggleGroupComponent } from '../../../../shared/components/form-controls/toggle-group/toggle-group';
 import { FilterSelectComponent } from '../../../../shared/components/form-controls/filter-select/filter-select';
@@ -25,8 +26,9 @@ import { RequestionsTable } from '../requestions-table/requestions-table';
 export class RequestionsOverview {
   private facade = inject(DashboardFacade);
 
-  readonly $requestionsFilters = this.facade.$requestionsFilters;
+  readonly $requestionsFilters = this.facade.$filters;
   readonly $requisitions = this.facade.$requisitions;
+  readonly $loading = this.facade.$loading;
 
   readonly options = REQUESTIONS_STATUS;
   readonly locations = REQUESTIONS_LOCATIONS;
@@ -45,7 +47,7 @@ export class RequestionsOverview {
   }
 
   formGroupValueChanges() {
-    this.formGroup.valueChanges.pipe(takeUntilDestroyed()).subscribe((value) => {
+    this.formGroup.valueChanges.pipe(debounceTime(300), takeUntilDestroyed()).subscribe((value) => {
       this.facade.updateRequestionsFilters(value as RequestionsFilters);
     });
   }
