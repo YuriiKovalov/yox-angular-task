@@ -9,7 +9,6 @@ import { SimpleModel } from '../../../../core/models/common.models';
 
 @Component({
   selector: 'app-toggle-group',
-  standalone: true,
   imports: [MatButtonToggleModule, FormsModule],
   template: `
     <mat-button-toggle-group

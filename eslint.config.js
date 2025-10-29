@@ -18,6 +18,8 @@ export default tseslint.config(
       globals: {
         console: "readonly",
         HTMLElement: "readonly",
+        document: "readonly",
+        HTMLDivElement: "readonly"
       },
     },
     plugins: {

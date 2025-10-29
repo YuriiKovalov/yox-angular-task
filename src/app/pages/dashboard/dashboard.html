@@ -21,5 +21,10 @@
 </section>
 
 <section>
-  <app-section-header-nav title="Workplaces" link="/workplaces"> content </app-section-header-nav>
+  <app-section-header-nav title="Workplaces" link="/workplaces">
+    <div class="map-container">
+      <!--      todo: put active workplaces as signal -->
+      <app-map-gl [lat]="42.6977" [lng]="23.3219" [zoom]="11"></app-map-gl>
+    </div>
+  </app-section-header-nav>
 </section>

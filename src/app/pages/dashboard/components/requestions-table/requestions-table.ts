@@ -3,7 +3,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSlideToggle } from '@angular/material/slide-toggle';
 import { NgClass } from '@angular/common';
 
-import { Requisition } from '../../../core/models/dashboard.models';
+import { Requisition } from '../../../../core/models/dashboard.models';
 
 @Component({
   selector: 'app-requestions-table',

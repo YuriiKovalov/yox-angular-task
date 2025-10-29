@@ -20,3 +20,6 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(MockApi, { delay: 1000 })),
   ],
 };
+
+export const MAPBOX_ACCESS_TOKEN =
+  'pk.eyJ1IjoieXVyaWk3NyIsImEiOiJjbWhidXQ1NmcwNmwyMmxzODl5enBtZ2VoIn0.0qwzBKtK74U1qL2zVezOCQ';

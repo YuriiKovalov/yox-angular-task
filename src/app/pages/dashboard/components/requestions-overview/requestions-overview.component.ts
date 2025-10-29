@@ -14,7 +14,7 @@ import {
 } from '../../../../core/constants/requestions-filters.constants';
 import { StatusValue } from '../../../../core/models/common.types';
 import { SimpleModel } from '../../../../core/models/common.models';
-import { RequestionsTable } from '../../../../shared/features/requestions-table/requestions-table';
+import { RequestionsTable } from '../requestions-table/requestions-table';
 
 @Component({
   selector: 'app-requestions-overview',
