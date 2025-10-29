@@ -21,8 +21,20 @@ import { Header } from './layout/header/header';
   templateUrl: './app.html',
   styles: [
     `
-      .app-container {
+      main {
         display: flex;
+        flex-direction: column;
+        height: 100vh;
+        box-sizing: border-box;
+      }
+      .app-container {
+        flex: 1;
+        display: flex;
+        overflow-y: auto;
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 20px;
+        width: 100%;
       }
       .side-bar {
         width: 200px;

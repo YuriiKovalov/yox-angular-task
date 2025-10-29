@@ -1,17 +1,19 @@
-<app-header />
-<div class="app-container">
-  <div class="side-bar">
-    <mat-list role="list">
-      @for (path of routes; track path) {
-        <mat-list-item role="listitem">
-          <a mat-button [routerLink]="path" routerLinkActive="active">
-            {{ path | titlecase }}
-          </a>
-        </mat-list-item>
-      }
-    </mat-list>
+<main>
+  <app-header />
+  <div class="app-container">
+    <div class="side-bar">
+      <mat-list role="list">
+        @for (path of routes; track path) {
+          <mat-list-item role="listitem">
+            <a mat-button [routerLink]="path" routerLinkActive="active">
+              {{ path | titlecase }}
+            </a>
+          </mat-list-item>
+        }
+      </mat-list>
+    </div>
+    <div class="content">
+      <router-outlet />
+    </div>
   </div>
-  <div class="content">
-    <router-outlet />
-  </div>
-</div>
+</main>
