@@ -6,15 +6,15 @@ export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: APP_ROUTES.DASHBOARD,
+    redirectTo: APP_ROUTES.dashboard,
   },
   {
-    path: APP_ROUTES.DASHBOARD,
+    path: APP_ROUTES.dashboard,
     loadChildren: () =>
       import('./pages/dashboard/dashboard.routes').then((m) => m.DASHBOARD_ROUTES),
   },
   {
-    path: APP_ROUTES.WORKPLACES,
+    path: APP_ROUTES.workplaces,
     loadChildren: () =>
       import('./pages/workplaces/workplaces.routes').then((m) => m.WORKPLACES_ROUTES),
   },

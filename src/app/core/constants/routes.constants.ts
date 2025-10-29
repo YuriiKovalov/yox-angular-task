@@ -1,6 +1,6 @@
 export const APP_ROUTES = {
-  DASHBOARD: 'dashboard',
-  WORKPLACES: 'workplaces',
-  REQUISITIONS: 'requisitions',
-  CANDIDATES: 'candidates',
+  dashboard: 'dashboard',
+  workplaces: 'workplaces',
+  requisitions: 'requisitions',
+  candidates: 'candidates',
 };

@@ -19,6 +19,10 @@ import { MapGl } from '../../shared/features/map-gl/map-gl';
   templateUrl: './dashboard.html',
   styles: [
     `
+      .dashboard-page {
+        max-width: 902px;
+      }
+
       .candidates-cards {
         display: flex;
         flex-wrap: wrap;

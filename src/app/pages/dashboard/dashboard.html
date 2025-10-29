@@ -1,30 +1,32 @@
-<section>
-  <h1>👋 Good Morning, {{ $user()?.name }}</h1>
-  <p>Here are the number of Candidates you have received recently</p>
+<div class="dashboard-page">
+  <section>
+    <h1>👋 Good Morning, {{ $user()?.name }}</h1>
+    <p>Here are the number of Candidates you have received recently</p>
 
-  <div class="candidates-cards">
-    @for (candidate of $candidates(); track candidate.period) {
-      <app-candidates-count-card
-        [period]="candidate.period"
-        [count]="candidate.count"
-        [notificationCount]="candidate.badge ?? 0"
-        [compareText]="candidate.compareText ?? ''"
-      ></app-candidates-count-card>
-    }
-  </div>
-</section>
-
-<section>
-  <app-section-header-nav title="Requisitions" link="/requisitions">
-    <app-requestions-overview />
-  </app-section-header-nav>
-</section>
-
-<section>
-  <app-section-header-nav title="Workplaces" link="/workplaces">
-    <div class="map-container">
-      <!--      todo: put active workplaces as signal -->
-      <app-map-gl [lat]="42.6977" [lng]="23.3219" [zoom]="11"></app-map-gl>
+    <div class="candidates-cards">
+      @for (candidate of $candidates(); track candidate.period) {
+        <app-candidates-count-card
+          [period]="candidate.period"
+          [count]="candidate.count"
+          [notificationCount]="candidate.badge ?? 0"
+          [compareText]="candidate.compareText ?? ''"
+        ></app-candidates-count-card>
+      }
     </div>
-  </app-section-header-nav>
-</section>
+  </section>
+
+  <section>
+    <app-section-header-nav title="Requisitions" link="/requisitions">
+      <app-requestions-overview />
+    </app-section-header-nav>
+  </section>
+
+  <section>
+    <app-section-header-nav title="Workplaces" link="/workplaces">
+      <div class="map-container">
+        <!--      todo: put active workplaces as signal -->
+        <app-map-gl [lat]="42.6977" [lng]="23.3219" [zoom]="11"></app-map-gl>
+      </div>
+    </app-section-header-nav>
+  </section>
+</div>
