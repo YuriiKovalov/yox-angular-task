@@ -14,10 +14,11 @@ import {
 } from '../../../../core/constants/requestions-filters.constants';
 import { StatusValue } from '../../../../core/models/common.types';
 import { SimpleModel } from '../../../../core/models/common.models';
+import { RequestionsTable } from '../../../../shared/features/requestions-table/requestions-table';
 
 @Component({
   selector: 'app-requestions-overview',
-  imports: [ToggleGroupComponent, ReactiveFormsModule, FilterSelectComponent],
+  imports: [ToggleGroupComponent, ReactiveFormsModule, FilterSelectComponent, RequestionsTable],
   templateUrl: './requestions-overview.component.html',
   styleUrl: './requestions-overview.component.scss',
 })
@@ -25,6 +26,8 @@ export class RequestionsOverview {
   private facade = inject(DashboardFacade);
 
   readonly $requestionsFilters = this.facade.$requestionsFilters;
+  readonly $requisitions = this.facade.$requisitions;
+
   readonly options = REQUESTIONS_STATUS;
   readonly locations = REQUESTIONS_LOCATIONS;
   readonly roles = REQUESTIONS_ROLES;

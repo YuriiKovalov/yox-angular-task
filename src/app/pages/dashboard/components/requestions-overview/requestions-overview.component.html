@@ -4,3 +4,5 @@
   <app-filter-select [options]="roles" label="Role" formControlName="role" />
   <app-filter-select [options]="workplaces" label="Workplace" formControlName="workplace" />
 </form>
+
+<app-requestions-table [dataSource]="$requisitions()" />
