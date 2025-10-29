@@ -33,19 +33,19 @@ export class NotificationCircle {
       this.renderer.appendChild(this.el.nativeElement, this.badgeEl);
 
       this.renderer.setStyle(this.badgeEl, 'position', 'absolute');
-      this.renderer.setStyle(this.badgeEl, 'top', '-6px');
-      this.renderer.setStyle(this.badgeEl, 'right', '-6px');
+      this.renderer.setStyle(this.badgeEl, 'top', '-20px');
+      this.renderer.setStyle(this.badgeEl, 'right', '-20px');
       this.renderer.setStyle(this.badgeEl, 'background', '#f44336'); // red
       this.renderer.setStyle(this.badgeEl, 'color', '#fff');
       this.renderer.setStyle(this.badgeEl, 'border-radius', '50%');
-      this.renderer.setStyle(this.badgeEl, 'width', '22px');
-      this.renderer.setStyle(this.badgeEl, 'height', '22px');
+      this.renderer.setStyle(this.badgeEl, 'width', '36px');
+      this.renderer.setStyle(this.badgeEl, 'height', '36px');
       this.renderer.setStyle(this.badgeEl, 'display', 'flex');
       this.renderer.setStyle(this.badgeEl, 'align-items', 'center');
       this.renderer.setStyle(this.badgeEl, 'justify-content', 'center');
       this.renderer.setStyle(this.badgeEl, 'font-size', '13px');
       this.renderer.setStyle(this.badgeEl, 'font-weight', '600');
-      this.renderer.setStyle(this.badgeEl, 'box-shadow', '0 0 4px rgba(0,0,0,0.2)');
+      this.renderer.setStyle(this.badgeEl, 'border', '4px solid #fff');
     }
 
     this.badgeEl!.textContent = count.toString();

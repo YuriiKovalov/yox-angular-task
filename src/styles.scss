@@ -20,6 +20,10 @@ $my-theme: mat.define-theme(
   @include mat.all-component-themes($my-theme);
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   height: 100%;
@@ -32,4 +36,15 @@ body {
   background-color: var(--mat-sys-surface);
   color: var(--mat-sys-on-surface);
   font: var(--mat-sys-body-medium);
+}
+
+h1 {
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 140%;
+}
+
+p {
+  font-size: 14px;
+  line-height: 140%;
 }

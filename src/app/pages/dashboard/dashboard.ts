@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 
 import { DashboardFacade } from './facade/dashboard.facade';
 import { CandidatesCountCard } from '../../shared/components/candidates-count-card/candidates-count-card.component';
@@ -6,6 +6,7 @@ import { SectionHeaderNav } from '../../shared/components/section-header-nav/sec
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { RequestionsOverview } from './components/requestions-overview/requestions-overview.component';
 import { MapGl } from '../../shared/features/map-gl/map-gl';
+import { User } from '../../core/models/dashboard.models';
 
 @Component({
   selector: 'app-dashboard',
@@ -26,7 +27,7 @@ import { MapGl } from '../../shared/features/map-gl/map-gl';
       .candidates-cards {
         display: flex;
         flex-wrap: wrap;
-        gap: 16px;
+        gap: 28px;
       }
 
       .map-container {
@@ -35,6 +36,18 @@ import { MapGl } from '../../shared/features/map-gl/map-gl';
         border-radius: 8px;
         overflow: hidden;
       }
+
+      h1 {
+        margin-bottom: 0;
+      }
+
+      p {
+        margin: 0 0 40px 36px;
+      }
+
+      .user-name {
+        color: black;
+      }
     `,
   ],
 })
@@ -42,5 +55,6 @@ export class Dashboard {
   private facade = inject(DashboardFacade);
 
   $candidates = this.facade.$candidates;
-  $user = this.facade.$user;
+  // ToDo: add to state or keep in LS
+  $user = signal<User>({ name: 'Martin' });
 }
