@@ -33,7 +33,7 @@ import { Header } from './layout/header/header';
         overflow-y: auto;
         max-width: 1440px;
         margin: 0 auto;
-        padding: 0 20px;
+        padding: 0;
         width: 100%;
       }
       .side-bar {

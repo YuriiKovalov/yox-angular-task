@@ -32,8 +32,6 @@ export class DashboardFacade {
     this.store.updateLoader(true);
     return this.client.getDashboardData(this.getRequestionsPayload(this.$filters())).pipe(
       tap((data) => {
-        this.store.updateUser(data.user);
-        this.store.updateCompany(data.company);
         this.store.updateCandidates(data.candidates);
         this.store.updateRequisitions(data.requisitions);
         this.store.updateWorkplaces(data.workplaces);

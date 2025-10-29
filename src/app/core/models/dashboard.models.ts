@@ -53,8 +53,6 @@ export interface WorkplacesSummary {
 }
 
 export interface DashboardData {
-  user: User;
-  company: Company;
   candidates: CandidateStat[];
   requisitions: Requisition[];
   workplaces: WorkplacesSummary;

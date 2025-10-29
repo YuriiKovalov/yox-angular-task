@@ -40,8 +40,6 @@ export class DashboardClient {
 
   getDashboardData(filters: RequestionsPayload) {
     return forkJoin({
-      user: this.getUser(),
-      company: this.getCompany(),
       candidates: this.getCandidates(),
       requisitions: this.getRequisitions(filters),
       workplaces: this.getWorkplaces(),
