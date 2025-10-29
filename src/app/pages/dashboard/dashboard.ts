@@ -24,6 +24,10 @@ import { User } from '../../core/models/dashboard.models';
         max-width: 902px;
       }
 
+      section + section {
+        margin-top: 90px;
+      }
+
       .candidates-cards {
         display: flex;
         flex-wrap: wrap;

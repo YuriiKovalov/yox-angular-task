@@ -7,7 +7,7 @@ import { NotificationCircle } from '../../directives/notification-circle';
   selector: 'app-candidates-count-card',
   imports: [MatCardModule, NotificationCircle],
   template: `
-    <mat-card appearance="outlined" [class.active]="$period() === 'Today'">
+    <mat-card appearance="outlined" [class.active]="$active()">
       <mat-card-content [appNotificationCircle]="$notifications()">
         <mat-card-subtitle>{{ $period() }}</mat-card-subtitle>
         <mat-card-title>{{ $count() }}</mat-card-title>
@@ -78,4 +78,5 @@ export class CandidatesCountCard {
   $count = input.required<number>({ alias: 'count' });
   $notifications = input.required<number>({ alias: 'notificationCount' });
   $compareText = input.required<string>({ alias: 'compareText' });
+  $active = input.required<boolean>({ alias: 'active' });
 }

@@ -12,6 +12,7 @@
           [count]="candidate.count"
           [notificationCount]="candidate.badge ?? 0"
           [compareText]="candidate.compareText ?? ''"
+          [active]="candidate.period === 'Today'"
         ></app-candidates-count-card>
       }
     </div>
