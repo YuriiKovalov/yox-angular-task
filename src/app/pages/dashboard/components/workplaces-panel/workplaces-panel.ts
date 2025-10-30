@@ -10,7 +10,7 @@ import { DashboardFacade } from '../../facade/dashboard.facade';
         <button type="button" (click)="onSearch()">
           <img src="assets/icons/search.svg" alt="search" />
         </button>
-        <input type="text" [value]="$term()" (input)="$term.set($event.target?.value || '')" />
+        <input type="text" [value]="$term()" (input)="$term.set($event.target?.value ?? '')" />
       </div>
 
       <div class="content">
@@ -20,9 +20,10 @@ import { DashboardFacade } from '../../facade/dashboard.facade';
           <img src="assets/icons/map-pin.svg" alt="info" />
           <h1>{{ $current() }}</h1>
         </div>
+
         <div class="segments">
           @for (segment of $segments(); track segment) {
-            <div class="segment" [class.active]="segment < $current()"></div>
+            <div class="segment" [class.active]="segment < $activeSegments()"></div>
           }
         </div>
 
@@ -116,9 +117,19 @@ export class WorkplacesPanel {
   readonly $workplaces = this.facade.$workplaces;
 
   readonly $current = computed(() => this.$workplaces()?.currentActiveWorkplaces ?? 0);
-  readonly $total = computed(() => this.$workplaces()?.totalWorkplaces ?? 0);
+  readonly $total = computed(() => 67);
 
-  readonly $segments = computed(() => Array.from({ length: this.$total() }, (_, i) => i));
+  readonly $segments = computed(() => Array.from({ length: 26 }, (_, i) => i));
+
+  readonly $activeSegments = computed(() => {
+    const current = this.$current();
+    const total = this.$total();
+
+    if (total <= 0) return 0;
+
+    const ratio = current / total;
+    return Math.floor(ratio * 26);
+  });
 
   readonly $term = signal('') as WritableSignal<string>;
 
