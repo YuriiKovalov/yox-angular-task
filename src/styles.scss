@@ -49,10 +49,57 @@ p {
   line-height: 140%;
 }
 
-// Override Angular Material button default spacing
+// Override Angular Material button default styles
 .mat-mdc-button .mdc-button__label {
   display: flex;
   align-items: center;
   gap: 16px;
   color: black;
+}
+
+// Override Angular Material table default styles
+.mat-mdc-table {
+  background: transparent !important;
+
+  tbody {
+    display: block;
+    border-radius: 16px;
+    border: 1px solid #0000001a;
+    overflow: hidden;
+  }
+
+  tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-bottom: 1px solid #0000001a;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .mat-mdc-header-row {
+    border: none !important;
+  }
+
+  .mat-mdc-header-cell {
+    border: none !important;
+  }
+
+  .mat-mdc-cell {
+    border: none !important;
+
+    &:not(:last-child) {
+      border-right: 1px solid #0000001a;
+    }
+  }
+
+  .mat-mdc-row:last-child .mat-mdc-cell:last-child {
+    border-right: none;
+  }
+
+  .mat-mdc-row .mat-mdc-cell:not(:last-child) {
+    box-shadow: inset -1px 0 0 #0000001a;
+  }
 }
