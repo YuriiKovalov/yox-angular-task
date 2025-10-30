@@ -2,33 +2,31 @@ import { ComponentRef, Injector, Type, ViewContainerRef } from '@angular/core';
 import mapboxgl from 'mapbox-gl';
 
 /**
- * Generic factory to mount an Angular component inside a Mapbox control.
+ * Generic class to mount any Angular component inside a Mapbox control.
  */
-export abstract class MapControlFactory<TComponent, TData = void> implements mapboxgl.IControl {
-  protected container!: HTMLElement;
-  protected componentRef!: ComponentRef<TComponent>;
+export class MapControlFactory<TComponent extends object, TData = void>
+  implements mapboxgl.IControl
+{
+  private container!: HTMLElement;
+  private componentRef!: ComponentRef<TComponent>;
 
   constructor(
-    protected viewContainerRef: ViewContainerRef,
-    protected injector: Injector,
-    protected data?: TData,
+    private componentType: Type<TComponent>,
+    private viewContainerRef: ViewContainerRef,
+    private injector: Injector,
+    private options?: { margin?: string },
   ) {}
-
-  protected abstract getComponentType(): Type<TComponent>;
-  protected abstract bindData(instance: TComponent, data?: TData): void;
 
   onAdd(): HTMLElement {
     this.container = document.createElement('div');
     this.container.classList.add('mapboxgl-ctrl', 'mapboxgl-ctrl-group');
-    this.container.style.margin = '12px';
+    this.container.style.margin = this.options?.margin ?? '12px';
 
-    this.componentRef = this.viewContainerRef.createComponent(this.getComponentType(), {
+    this.componentRef = this.viewContainerRef.createComponent(this.componentType, {
       injector: this.injector,
     });
 
-    this.bindData(this.componentRef.instance, this.data);
     this.container.appendChild(this.componentRef.location.nativeElement);
-
     return this.container;
   }
 

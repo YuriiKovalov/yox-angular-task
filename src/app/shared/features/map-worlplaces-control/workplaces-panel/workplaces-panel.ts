@@ -1,7 +1,9 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatIconModule } from '@angular/material/icon';
+
+import { DashboardFacade } from '../../../../pages/dashboard/facade/dashboard.facade';
 
 @Component({
   selector: 'app-workplaces-panel',
@@ -51,6 +53,10 @@ import { MatIconModule } from '@angular/material/icon';
   ],
 })
 export class WorkplacesPanel {
-  readonly $current = signal(0);
-  readonly $total = signal(0);
+  private readonly facade = inject(DashboardFacade);
+
+  readonly $workplaces = this.facade.$workplaces;
+
+  readonly $current = computed(() => this.$workplaces()?.currentActiveWorkplaces ?? 0);
+  readonly $total = computed(() => this.$workplaces()?.totalWorkplaces ?? 0);
 }

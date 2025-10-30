@@ -8,6 +8,7 @@ import { RequestionsOverview } from './components/requestions-overview/requestio
 import { MapGl } from '../../shared/features/map-gl/map-gl';
 import { User } from '../../core/models/dashboard.models';
 import { MapGlFacade } from '../../shared/features/map-gl/facade/map-gl.facade';
+import { WorkplacesPanel } from '../../shared/features/map-worlplaces-control/workplaces-panel/workplaces-panel';
 
 @Component({
   selector: 'app-dashboard',
@@ -71,5 +72,7 @@ export class Dashboard {
     if (pins && pins.length) {
       this.mapFacade.addPins(pins);
     }
+
+    this.mapFacade.addControl(WorkplacesPanel, 'top-left');
   }
 }
