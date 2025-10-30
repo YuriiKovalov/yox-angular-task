@@ -59,11 +59,12 @@ src/
   styles.scss             # Global styles
 ```
 
-### Assumptions and Shortcuts
+### Assumptions and Demo Notes
 
 - Mock backend uses `angular-in-memory-web-api` with ~1s delay to simulate network latency.
-- Error simulation: a custom HTTP interceptor returns 500 for `PUT /api/requisitions/:id` to showcase error state handling in the table.
--
+- Filters intentionally demonstrate state transitions: changing any filter reloads data and shows Loading (~1s); combining them to no matches shows Empty.
+- Error simulation: clicking the on/off switch in the table (on/off column) issues `PUT /api/requisitions/:id` which is mocked to return 500, showing the Error state; adjust any filter to reload data afterwards.
+- A route resolver is used on Dashboard to preload data so the page activates only after data is ready (a simple demonstration of this approach).
 
 ### Notable Commands
 
