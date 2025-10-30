@@ -80,6 +80,7 @@ export default tseslint.config(
         expect: "readonly",
         beforeEach: "readonly",
         afterEach: "readonly",
+        jasmine: "readonly",
       },
     },
   },
