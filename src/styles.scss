@@ -121,3 +121,9 @@ p {
 .mapboxgl-ctrl-group:not(:empty) {
   box-shadow: 0px 2px 2px 0px #00000040 !important;
 }
+
+// Styles for HTML injected via abbrNumberHtml pipe
+app-candidates-count-card .abbr-suffix {
+  font-weight: 400 !important;
+  color: #00000080 !important;
+}
