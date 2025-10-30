@@ -29,6 +29,36 @@ npm run format
 
 The app runs at `http://localhost:4200/`.
 
+### Project Structure
+
+```text
+src/
+  app/
+    core/                 # Application infrastructure (API, models, store, providers)
+      api/                # Mock API and seed data
+      client/             # API clients (dashboard)
+      constants/          # Constants (routes, filters)
+      interceptors/       # HTTP interceptors (error simulation)
+      models/             # Domain models and types
+      providers/          # Feature DI providers
+      resolvers/          # Route resolvers (dashboard prefetch)
+      services/           # General-purpose services (local storage)
+      state/              # Signal store (dashboard.store)
+    layout/               # App shell UI (header, side-bar)
+    pages/
+      dashboard/          # Dashboard page
+        components/       # Widgets and tables related to Dashboard
+        facade/           # Page facade for UI–data interaction
+      workplaces/         # Workplaces placeholder page
+    shared/               # Reusable building blocks
+      components/         # Common components (controls, cards, nav)
+      directives/         # Common directives
+      features/           # Encapsulated features (e.g., map-gl)
+      pipes/              # Common pipes
+  assets/                 # Icons and images
+  styles.scss             # Global styles
+```
+
 ### Assumptions and Shortcuts
 
 - Mock backend uses `angular-in-memory-web-api` with ~1s delay to simulate network latency.
