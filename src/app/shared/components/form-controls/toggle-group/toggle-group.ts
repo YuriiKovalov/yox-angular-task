@@ -44,7 +44,7 @@ import { StatusValue } from '../../../../core/models/common.types';
         display: flex;
         align-items: center;
         gap: 8px;
-        padding: 8px 20px;
+        padding: 5px 12px;
         border-radius: 40px;
         font-weight: 500;
         font-size: 12px;
@@ -55,7 +55,7 @@ import { StatusValue } from '../../../../core/models/common.types';
 
       .toggle-option.active {
         background-color: #ffffff;
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 2px 0 #00000040;
       }
 
       .toggle-option .count {

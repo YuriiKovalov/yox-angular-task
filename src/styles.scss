@@ -48,3 +48,11 @@ p {
   font-size: 14px;
   line-height: 140%;
 }
+
+// Override Angular Material button default spacing
+.mat-mdc-button .mdc-button__label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: black;
+}
