@@ -2,12 +2,22 @@
 
 A small Angular app demonstrating dashboard features with filtering, mock API, error handling, and basic unit tests.
 
+### Contents
+
+- Quick Start
+- Versions
+- Project Structure
+- Key Routes and App Config
+- Assumptions and Demo Notes
+- What’s Covered by Tests
+- Potential Improvements
+
 ### Versions
 
 - Angular: 20.3.x (CLI 20.3.7)
 - Node: 20.x LTS (tested on v20)
 
-### Setup and Run
+### Quick Start
 
 ```bash
 # install
@@ -26,6 +36,13 @@ npm run lint
 # format
 npm run format
 ```
+
+### Key Routes and App Config
+
+- `src/app/app.routes.ts` — root routes; feature routes declared in `pages/*/*.routes.ts`.
+- `src/app/pages/dashboard/dashboard.routes.ts` — Dashboard routes (resolver, providers).
+- `src/main.ts` — application bootstrap.
+- `src/app/app.config.ts` — app-level providers (HTTP, router, interceptors, etc.).
 
 The app runs at `http://localhost:4200/`.
 
