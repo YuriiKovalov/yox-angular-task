@@ -117,7 +117,7 @@ export class WorkplacesPanel {
   readonly $workplaces = this.facade.$workplaces;
 
   readonly $current = computed(() => this.$workplaces()?.currentActiveWorkplaces ?? 0);
-  readonly $total = computed(() => 67);
+  readonly $total = computed(() => this.$workplaces()?.totalWorkplaces ?? 0);
 
   readonly $segments = computed(() => Array.from({ length: 26 }, (_, i) => i));
 
