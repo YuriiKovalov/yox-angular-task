@@ -21,7 +21,8 @@ import { User } from '../../core/models/dashboard.models';
   styles: [
     `
       .dashboard-page {
-        max-width: 902px;
+        max-width: 922px;
+        padding: 0 20px 100px;
       }
 
       section + section {
@@ -35,7 +36,7 @@ import { User } from '../../core/models/dashboard.models';
       }
 
       .map-container {
-        height: 400px;
+        height: 450px;
         width: 100%;
         border-radius: 8px;
         overflow: hidden;

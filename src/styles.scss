@@ -109,3 +109,15 @@ p {
 .mdc-switch__handle {
   margin-left: 35px !important;
 }
+
+// Override Mapbox fullscreen control styles
+.mapboxgl-ctrl-fullscreen .mapboxgl-ctrl-icon {
+  background-image: url('/assets/icons/fullscreen.svg') !important;
+  background-size: 32px 32px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.mapboxgl-ctrl-group:not(:empty) {
+  box-shadow: 0px 2px 2px 0px #00000040 !important;
+}
