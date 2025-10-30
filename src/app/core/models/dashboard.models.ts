@@ -15,7 +15,6 @@ export interface CandidateStat {
   count: number;
   displayCount?: string;
   compareText: string | null;
-  // ToDo: consider using enum
   compareType: 'increase' | 'decrease' | null;
   badge: number | null;
 }
@@ -40,7 +39,6 @@ export interface Requisition {
   active: boolean;
   role: string;
   status: string;
-  // ToDo: consider using enum
   statusType: 'success' | 'warning' | 'error' | string;
   workplace: WorkplaceLocation;
   shifts: Shifts;

@@ -56,7 +56,6 @@ import { Component, signal } from '@angular/core';
   ],
 })
 export class Header {
-  // ToDo: add state or keep in local storage
   readonly $company = signal({
     name: 'AMREST BULGARIA LTD',
     brand: 'Starbucks',

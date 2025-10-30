@@ -6,7 +6,6 @@ export const REQUESTIONS_STATUS: SimpleModel<StatusValue>[] = [
   { value: 'inactive', label: 'Inactive' },
 ];
 
-// Values aligned with mock.json requisitions
 export const REQUESTIONS_LOCATIONS: SimpleModel<string>[] = [
   { value: 'all', label: 'All' },
   { value: 'Manhattan, New York City', label: 'Manhattan, New York City' },

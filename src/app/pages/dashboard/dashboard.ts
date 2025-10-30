@@ -64,7 +64,6 @@ export class Dashboard {
 
   $candidates = this.facade.$candidates;
   $workplaces = this.facade.$workplaces;
-  // ToDo: add to state or keep in LS
   $user = signal<User>({ name: 'Martin' });
 
   mapLoaded() {
