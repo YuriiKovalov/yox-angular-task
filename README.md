@@ -78,3 +78,13 @@ src/
 ### What’s Covered by Tests
 
 - `RequestionsTable` component: loading/empty/error/data states and toggle interaction calling the facade.
+
+### Potential Improvements
+
+- Consolidate and better organize constants: centralize values, avoid duplication, add naming consistency.
+- Introduce/enhance enums where appropriate: replace magic strings with well-typed enums.
+- Refine models and interfaces: improve naming, split by domain, ensure strict typing and reuse.
+- Improve styling:
+  - Extract common values (colors, spacing, radii) into variables/constants.
+  - Reuse utility classes and reduce one-off styles.
+  - Fix the scrollbar layout so it sits flush on the far right.
