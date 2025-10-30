@@ -79,27 +79,13 @@ p {
     }
   }
 
-  .mat-mdc-header-row {
-    border: none !important;
-  }
-
   .mat-mdc-header-cell {
     border: none !important;
+    font-size: 14px !important;
+    color: #00000040;
   }
 
   .mat-mdc-cell {
     border: none !important;
-
-    &:not(:last-child) {
-      border-right: 1px solid #0000001a;
-    }
-  }
-
-  .mat-mdc-row:last-child .mat-mdc-cell:last-child {
-    border-right: none;
-  }
-
-  .mat-mdc-row .mat-mdc-cell:not(:last-child) {
-    box-shadow: inset -1px 0 0 #0000001a;
   }
 }
