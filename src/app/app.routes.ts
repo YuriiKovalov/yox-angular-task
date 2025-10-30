@@ -18,4 +18,14 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./pages/workplaces/workplaces.routes').then((m) => m.WORKPLACES_ROUTES),
   },
+  {
+    path: APP_ROUTES.requisitions,
+    loadChildren: () =>
+      import('./pages/requisitions/requisitions.routes').then((m) => m.REQUISITIONS_ROUTES),
+  },
+  {
+    path: APP_ROUTES.candidates,
+    loadChildren: () =>
+      import('./pages/candidates/candidates.routes').then((m) => m.CANDIDATES_ROUTES),
+  },
 ];
