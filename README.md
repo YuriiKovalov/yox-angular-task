@@ -65,6 +65,7 @@ src/
 - Filters intentionally demonstrate state transitions: changing any filter reloads data and shows Loading (~1s); combining them to no matches shows Empty.
 - Error simulation: clicking the on/off switch in the table (on/off column) issues `PUT /api/requisitions/:id` which is mocked to return 500, showing the Error state; adjust any filter to reload data afterwards.
 - A route resolver is used on Dashboard to preload data so the page activates only after data is ready (a simple demonstration of this approach).
+- Map controls: any Angular component can be mounted as a Mapbox control via a generic `IControl` adapter (`MapControlFactory`) that uses `ViewContainerRef.createComponent` and is exposed through `MapGlFacade.addControl`.
 
 ### Notable Commands
 
