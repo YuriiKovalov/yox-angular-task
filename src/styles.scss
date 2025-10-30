@@ -89,3 +89,23 @@ p {
     border: none !important;
   }
 }
+
+// Override Angular Material slide toggle default styles
+.mdc-switch {
+  width: 64px !important;
+  height: 32px !important;
+}
+
+.mdc-switch__track::after {
+  background-color: #34c759 !important;
+}
+
+.mdc-switch--unselected {
+  .mdc-switch__handle {
+    margin-left: 4px !important;
+  }
+}
+
+.mdc-switch__handle {
+  margin-left: 35px !important;
+}
