@@ -7,6 +7,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { RequestionsOverview } from './components/requestions-overview/requestions-overview.component';
 import { MapGl } from '../../shared/features/map-gl/map-gl';
 import { User } from '../../core/models/dashboard.models';
+import { MapGlFacade } from '../../shared/features/map-gl/facade/map-gl.facade';
 
 @Component({
   selector: 'app-dashboard',
@@ -58,8 +59,17 @@ import { User } from '../../core/models/dashboard.models';
 })
 export class Dashboard {
   private facade = inject(DashboardFacade);
+  private mapFacade = inject(MapGlFacade);
 
   $candidates = this.facade.$candidates;
+  $workplaces = this.facade.$workplaces;
   // ToDo: add to state or keep in LS
   $user = signal<User>({ name: 'Martin' });
+
+  mapLoaded() {
+    const pins = this.$workplaces()?.workplaces.map((workplace) => workplace.coordinates!);
+    if (pins && pins.length) {
+      this.mapFacade.addPins(pins);
+    }
+  }
 }

@@ -3,6 +3,7 @@ import mapboxgl, { Map } from 'mapbox-gl';
 
 import { WorkplaceControl } from '../../map-worlplaces-control/workplace-control';
 import { MAPBOX_ACCESS_TOKEN } from '../../../../app.config';
+import { generateMapMarker } from '../utils/generate-map-marker.util';
 
 @Injectable({ providedIn: 'root' })
 export class MapGlFacade {
@@ -19,7 +20,7 @@ export class MapGlFacade {
   ): void {
     const map = new mapboxgl.Map({
       container: mapContainer.nativeElement,
-      style: 'mapbox://styles/mapbox/streets-v12',
+      style: 'mapbox://styles/mapbox/light-v11',
       center: [lng, lat],
       zoom: zoom,
       accessToken: MAPBOX_ACCESS_TOKEN,
@@ -39,5 +40,12 @@ export class MapGlFacade {
       map.remove();
       this.$map.set(null);
     }
+  }
+
+  addPins(points: Array<{ lat: number; lng: number }>) {
+    points.forEach(({ lat, lng }) => {
+      const marker = generateMapMarker();
+      new mapboxgl.Marker(marker).setLngLat([lng, lat]).addTo(this.$map()!);
+    });
   }
 }

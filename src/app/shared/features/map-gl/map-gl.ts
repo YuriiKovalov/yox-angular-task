@@ -7,6 +7,7 @@ import {
   ViewContainerRef,
   inject,
   input,
+  output,
 } from '@angular/core';
 import { MapGlFacade } from './facade/map-gl.facade';
 
@@ -35,6 +36,8 @@ export class MapGl implements OnInit, OnDestroy {
   readonly $lng = input.required<number>({ alias: 'lng' });
   readonly $zoom = input.required<number>({ alias: 'zoom' });
 
+  readonly mapLoadedEvent = output<void>();
+
   readonly $map = this.facade.$map;
 
   ngOnInit(): void {
@@ -45,6 +48,10 @@ export class MapGl implements OnInit, OnDestroy {
       this.$lat(),
       this.$zoom(),
     );
+
+    this.$map()?.on('load', () => {
+      this.mapLoadedEvent.emit();
+    });
   }
 
   ngOnDestroy(): void {
