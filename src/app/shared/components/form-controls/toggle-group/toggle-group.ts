@@ -31,6 +31,8 @@ import { StatusValue } from '../../../../core/models/common.types';
         display: flex;
         align-items: center;
         background-color: #f3f3f3;
+        max-width: 205px;
+        height: 36px;
         border-radius: 40px;
         padding: 4px;
         user-select: none;
@@ -44,8 +46,8 @@ import { StatusValue } from '../../../../core/models/common.types';
         gap: 8px;
         padding: 8px 20px;
         border-radius: 40px;
-        font-size: 16px;
-        font-weight: 600;
+        font-weight: 500;
+        font-size: 12px;
         color: #0b1633;
         cursor: pointer;
         transition: all 0.25s ease;
@@ -60,13 +62,11 @@ import { StatusValue } from '../../../../core/models/common.types';
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-width: 26px;
-        height: 26px;
+        width: 19px;
+        height: 19px;
         padding: 0 6px;
         border-radius: 50%;
         background-color: #f5f5f5;
-        font-weight: 700;
-        font-size: 14px;
       }
 
       .toggle-group.disabled {
