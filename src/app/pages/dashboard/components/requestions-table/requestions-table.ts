@@ -19,4 +19,9 @@ export class RequestionsTable {
 
   private facade = inject(DashboardFacade);
   readonly $loading = this.facade.$loading;
+  readonly $error = this.facade.$error;
+
+  onToggle(req: Requisition, checked: boolean) {
+    this.facade.toggleRequisition(req.id, checked);
+  }
 }

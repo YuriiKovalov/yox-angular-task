@@ -48,6 +48,19 @@ export class MockApi implements InMemoryDbService {
       }));
     }
 
-    return undefined; // fallback to default handling
+    return undefined;
+  }
+
+  put(reqInfo: RequestInfo) {
+    const { collectionName, id } = reqInfo;
+    if (collectionName === 'requisitions') {
+      return reqInfo.utils.createResponse$(() => ({
+        status: 200,
+        headers: reqInfo.headers,
+        url: reqInfo.url,
+        body: reqInfo.utils.getJsonBody(reqInfo.req),
+      }));
+    }
+    return undefined;
   }
 }

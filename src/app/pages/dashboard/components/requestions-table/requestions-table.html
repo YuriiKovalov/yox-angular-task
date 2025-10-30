@@ -1,71 +1,78 @@
 <div class="table-container">
   @if (!$loading()) {
-    @if ($dataSource().length > 0) {
-      <table mat-table [dataSource]="$dataSource()" class="mat-elevation-z1">
-        <!-- On/Off -->
-        <ng-container matColumnDef="onOff">
-          <th mat-header-cell *matHeaderCellDef>On / Off</th>
-          <td mat-cell *matCellDef="let req">
-            <mat-slide-toggle [checked]="req.active"></mat-slide-toggle>
-          </td>
-        </ng-container>
-
-        <!-- Role -->
-        <ng-container matColumnDef="role">
-          <th mat-header-cell *matHeaderCellDef>Role</th>
-          <td mat-cell *matCellDef="let req">
-            <div class="cell-container">
-              <div [class.inactive]="!req.active" class="cell-content">
-                <h3 class="name">
-                  <strong>{{ req.role }}</strong>
-                </h3>
-                <p class="status" [ngClass]="req.statusType">{{ req.status }}</p>
-              </div>
-            </div>
-          </td>
-        </ng-container>
-
-        <!-- Workplace -->
-        <ng-container matColumnDef="workplace">
-          <th mat-header-cell *matHeaderCellDef>Workplace</th>
-          <td mat-cell *matCellDef="let req">
-            <div class="cell-container">
-              <img src="assets/icons/location.svg" alt="Location Icon" />
-              <div [class.inactive]="!req.active" class="cell-content">
-                <a href="#" class="name">{{ req.workplace.name }}</a>
-                <p>{{ req.workplace.location }}</p>
-              </div>
-            </div>
-          </td>
-        </ng-container>
-
-        <!-- Shifts -->
-        <ng-container matColumnDef="shifts">
-          <th mat-header-cell *matHeaderCellDef>Shifts</th>
-          <td mat-cell *matCellDef="let req">
-            <div class="cell-container">
-              <img src="assets/icons/shift.svg" alt="Shift Icon" />
-              <div [class.inactive]="!req.active" class="cell-content">
-                <h3>{{ req.shifts.active }} active</h3>
-                <p>from {{ req.shifts.available }} available</p>
-              </div>
-            </div>
-          </td>
-        </ng-container>
-
-        <!-- Actions -->
-        <ng-container matColumnDef="actions">
-          <th mat-header-cell *matHeaderCellDef></th>
-          <td mat-cell *matCellDef="let req">
-            <a href="#"><img src="assets/icons/arrow-right.svg" alt="Arrow Right Icon" /></a>
-          </td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-      </table>
+    @if ($error()) {
+      <div class="state state-error">{{ $error() }}</div>
     } @else {
-      <div class="state state-empty">No requisitions found</div>
+      @if ($dataSource().length > 0) {
+        <table mat-table [dataSource]="$dataSource()" class="mat-elevation-z1">
+          <!-- On/Off -->
+          <ng-container matColumnDef="onOff">
+            <th mat-header-cell *matHeaderCellDef>On / Off</th>
+            <td mat-cell *matCellDef="let req">
+              <mat-slide-toggle
+                [checked]="req.active"
+                (change)="onToggle(req, $event.checked)"
+              ></mat-slide-toggle>
+            </td>
+          </ng-container>
+
+          <!-- Role -->
+          <ng-container matColumnDef="role">
+            <th mat-header-cell *matHeaderCellDef>Role</th>
+            <td mat-cell *matCellDef="let req">
+              <div class="cell-container">
+                <div [class.inactive]="!req.active" class="cell-content">
+                  <h3 class="name">
+                    <strong>{{ req.role }}</strong>
+                  </h3>
+                  <p class="status" [ngClass]="req.statusType">{{ req.status }}</p>
+                </div>
+              </div>
+            </td>
+          </ng-container>
+
+          <!-- Workplace -->
+          <ng-container matColumnDef="workplace">
+            <th mat-header-cell *matHeaderCellDef>Workplace</th>
+            <td mat-cell *matCellDef="let req">
+              <div class="cell-container">
+                <img src="assets/icons/location.svg" alt="Location Icon" />
+                <div [class.inactive]="!req.active" class="cell-content">
+                  <a href="#" class="name">{{ req.workplace.name }}</a>
+                  <p>{{ req.workplace.location }}</p>
+                </div>
+              </div>
+            </td>
+          </ng-container>
+
+          <!-- Shifts -->
+          <ng-container matColumnDef="shifts">
+            <th mat-header-cell *matHeaderCellDef>Shifts</th>
+            <td mat-cell *matCellDef="let req">
+              <div class="cell-container">
+                <img src="assets/icons/shift.svg" alt="Shift Icon" />
+                <div [class.inactive]="!req.active" class="cell-content">
+                  <h3>{{ req.shifts.active }} active</h3>
+                  <p>from {{ req.shifts.available }} available</p>
+                </div>
+              </div>
+            </td>
+          </ng-container>
+
+          <!-- Actions -->
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let req">
+              <a href="#"><img src="assets/icons/arrow-right.svg" alt="Arrow Right Icon" /></a>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+      } @else {
+        <div class="state state-empty">No requisitions found</div>
+      }
     }
   } @else {
     <div class="state state-loading">Loading requisitions…</div>

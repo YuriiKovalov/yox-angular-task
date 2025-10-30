@@ -18,6 +18,7 @@ export class DashboardFacade {
   readonly $workplaces = this.store.workplaces;
   readonly $filters = this.store.requestionsFilters;
   readonly $loading = this.store.isLoading;
+  readonly $error = this.store.error;
 
   constructor() {
     toObservable(this.store.requestionsFilters)
@@ -43,8 +44,23 @@ export class DashboardFacade {
     this.store.updateRequestionsFilters(filters);
   }
 
+  toggleRequisition(id: number, nextActive: boolean) {
+    this.store.setError(null);
+    this.client
+      .updateRequisitionActive(id, nextActive)
+      .pipe(
+        switchMap(() => this.loadRequisitions(this.getRequestionsPayload(this.$filters()))),
+        finalize(() => this.store.updateLoader(false)),
+        takeUntilDestroyed(this.destroyRef),
+      )
+      .subscribe({
+        error: () => this.store.setError('Something went wrong while updating requisition.'),
+      });
+  }
+
   private loadRequisitions(filters: RequestionsPayload) {
     this.store.updateLoader(true);
+    this.store.setError(null);
     return this.client.getRequisitions(filters).pipe(
       tap((requisitions) => this.store.updateRequisitions(requisitions)),
       finalize(() => this.store.updateLoader(false)),

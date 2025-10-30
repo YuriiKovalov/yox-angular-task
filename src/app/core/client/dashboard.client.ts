@@ -44,6 +44,10 @@ export class DashboardClient {
     return this.http.get<WorkplacesSummary>('/api/workplaces');
   }
 
+  updateRequisitionActive(id: number, active: boolean) {
+    return this.http.put(`/api/requisitions/${id}`, { active });
+  }
+
   getDashboardData(filters: RequestionsPayload) {
     return forkJoin({
       candidates: this.getCandidates(),

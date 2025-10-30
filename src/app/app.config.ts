@@ -8,7 +8,8 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { MockApi } from './core/api/mock-api';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptors, withInterceptorsFromDi } from '@angular/common/http';
+import { errorSimulatorInterceptor } from './core/interceptors/error-simulator.interceptor';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 export const appConfig: ApplicationConfig = {
@@ -16,7 +17,7 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideHttpClient(withInterceptorsFromDi()),
+    provideHttpClient(withInterceptors([errorSimulatorInterceptor]), withInterceptorsFromDi()),
     importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(MockApi, { delay: 1000 })),
   ],
 };
