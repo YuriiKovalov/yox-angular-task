@@ -60,3 +60,12 @@ p {
     color: #ff9800 !important;
   }
 }
+
+.state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  color: #00000080;
+  font-size: 14px;
+}
