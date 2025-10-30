@@ -5,18 +5,24 @@ export const REQUESTIONS_STATUS: SimpleModel<StatusValue>[] = [
   { value: 'active', label: 'Active' },
   { value: 'inactive', label: 'Inactive' },
 ];
+
+// Values aligned with mock.json requisitions
 export const REQUESTIONS_LOCATIONS: SimpleModel<string>[] = [
-  { value: 'location 1', label: 'Location 1' },
-  { value: 'location 2', label: 'Location 2' },
-  { value: 'location 3', label: 'Location 3' },
+  { value: 'all', label: 'All' },
+  { value: 'Manhattan, New York City', label: 'Manhattan, New York City' },
 ];
+
 export const REQUESTIONS_ROLES: SimpleModel<string>[] = [
-  { value: 'role 1', label: 'Role 1' },
-  { value: 'role 2', label: 'Role 2' },
-  { value: 'role 3', label: 'Role 3' },
+  { value: 'all', label: 'All' },
+  { value: 'Barista', label: 'Barista' },
+  { value: 'Shift Manager', label: 'Shift Manager' },
+  { value: 'Cleaner', label: 'Cleaner' },
 ];
+
 export const REQUESTIONS_WORKPLACES: SimpleModel<string>[] = [
-  { value: 'workplace 1', label: 'Workplace 1' },
-  { value: 'workplace 2', label: 'Workplace 2' },
-  { value: 'workplace 3', label: 'Workplace 3' },
+  { value: 'all', label: 'All' },
+  { value: 'Starbucks on Broadway & Bond', label: 'Starbucks on Broadway & Bond' },
+  { value: 'Starbucks on 14th & Sixth', label: 'Starbucks on 14th & Sixth' },
+  { value: 'Starbucks on NYU 4th & Washington', label: 'Starbucks on NYU 4th & Washington' },
+  { value: 'Starbucks on 7th Ave at Grove Street', label: 'Starbucks on 7th Ave at Grove Street' },
 ];

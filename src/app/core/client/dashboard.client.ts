@@ -30,7 +30,14 @@ export class DashboardClient {
   }
 
   getRequisitions(filters: RequestionsPayload) {
-    return this.http.get<RequisitionData>('/api/requisitions');
+    return this.http.get<RequisitionData>('/api/requisitions', {
+      params: {
+        status: filters.status,
+        location: filters.location,
+        role: filters.role,
+        workplace: filters.workplace,
+      },
+    });
   }
 
   getWorkplaces() {
