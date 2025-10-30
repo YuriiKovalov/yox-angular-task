@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="header">
+    <button type="button" (click)="onSearch()">
+      <img src="assets/icons/search.svg" alt="search" />
+    </button>
+    <input type="text" [value]="$term()" (input)="$term.set($event.target?.value ?? '')" />
+  </div>
+
+  <div class="content">
+    <p>Current Active Workplaces</p>
+
+    <div class="count-info">
+      <img src="assets/icons/map-pin.svg" alt="info" />
+      <h1>{{ $current() }}</h1>
+    </div>
+
+    <div class="segments">
+      @for (segment of $segments(); track segment) {
+        <div class="segment" [class.active]="segment < $activeSegments()"></div>
+      }
+    </div>
+
+    <div class="labels">
+      <span>0</span>
+      <span>{{ $total() }}</span>
+    </div>
+  </div>
+</div>

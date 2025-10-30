@@ -1,0 +1,33 @@
+.dashboard-page {
+  max-width: 922px;
+  padding: 0 20px 100px;
+}
+
+section + section {
+  margin-top: 90px;
+}
+
+.candidates-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+
+.map-container {
+  height: 450px;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+p {
+  margin: 0 0 40px 36px;
+}
+
+.user-name {
+  color: black;
+}

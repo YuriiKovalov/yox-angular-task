@@ -1,0 +1,50 @@
+.sidebar {
+  padding: 40px 50px 0 0;
+  width: 220px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+li {
+  display: flex;
+}
+
+a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 48px;
+  width: 100%;
+  padding: 0 16px;
+  border-radius: 32px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #111;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+a:hover,
+a.active {
+  background-color: #00000012;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  opacity: 0.6;
+}
+
+a:hover .icon,
+a.active .icon {
+  opacity: 1;
+}

@@ -9,7 +9,6 @@ import { SimpleModel } from '../../../../core/models/common.models';
 @Component({
   selector: 'app-filter-select',
   imports: [MatMenuModule, MatButtonModule],
-  styleUrls: ['./filter-select.scss'],
   template: `
     <button mat-button [matMenuTriggerFor]="menu" class="filter-btn">
       {{ $value()?.label || $label() }}
@@ -24,6 +23,22 @@ import { SimpleModel } from '../../../../core/models/common.models';
       }
     </mat-menu>
   `,
+  styles: [
+    `
+      .filter-btn {
+        background: #f4f4f4;
+        padding: 8px 16px;
+        height: 32px;
+        font-size: 12px;
+
+        .arrow {
+          font-size: 14px;
+          color: #111;
+          transform: translateY(-1px);
+        }
+      }
+    `,
+  ],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

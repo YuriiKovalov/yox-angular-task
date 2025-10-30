@@ -8,7 +8,19 @@ import { SideBar } from './layout/side-bar/side-bar';
 @Component({
   selector: 'app-root',
   imports: [MatSidenavModule, RouterOutlet, MatListModule, Header, RouterModule, SideBar],
-  templateUrl: './app.html',
+  template: `
+    <main>
+      <app-header />
+      <div class="app-container">
+        <div class="side-bar">
+          <app-side-bar />
+        </div>
+        <div class="content">
+          <router-outlet />
+        </div>
+      </div>
+    </main>
+  `,
   styles: [
     `
       .app-container {

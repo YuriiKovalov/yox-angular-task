@@ -20,15 +20,40 @@ import { RequestionsTable } from '../requestions-table/requestions-table';
 @Component({
   selector: 'app-requestions-overview',
   imports: [ToggleGroupComponent, ReactiveFormsModule, FilterSelectComponent, RequestionsTable],
-  templateUrl: './requestions-overview.component.html',
-  styleUrl: './requestions-overview.component.scss',
+  template: `
+    <form [formGroup]="formGroup">
+      <div class="filters">
+        <app-toggle-group [options]="options" formControlName="status" />
+        <div class="filters-row">
+          <app-filter-select [options]="locations" label="Location" formControlName="location" />
+          <app-filter-select [options]="roles" label="Role" formControlName="role" />
+          <app-filter-select [options]="workplaces" label="Workplace" formControlName="workplace" />
+        </div>
+      </div>
+    </form>
+
+    <app-requestions-table [dataSource]="$requisitionData()!.items" />
+  `,
+  styles: [
+    `
+      .filters {
+        display: flex;
+      }
+
+      .filters-row {
+        flex: 1;
+        display: flex;
+        justify-content: end;
+        gap: 8px;
+      }
+    `,
+  ],
 })
 export class RequestionsOverview {
   private facade = inject(DashboardFacade);
 
   readonly $requestionsFilters = this.facade.$filters;
   readonly $requisitionData = this.facade.$requisitionData;
-  readonly $loading = this.facade.$loading;
 
   readonly options = this.getRequisitionsOptions();
   readonly locations = REQUESTIONS_LOCATIONS;

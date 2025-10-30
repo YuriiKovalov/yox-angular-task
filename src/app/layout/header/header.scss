@@ -1,0 +1,29 @@
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 47px 80px 25px 177px;
+  border-radius: 12px;
+}
+
+.company {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.company-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.2;
+  margin-right: 30px;
+}
+
+.company-name {
+  font-weight: 600;
+}
+
+.company-brand {
+  font-size: 14px;
+}
