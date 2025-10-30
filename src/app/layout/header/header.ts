@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { LocalStorageService } from '../../core/services/local-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -13,8 +14,8 @@ import { Component, signal } from '@angular/core';
         <img [src]="'assets/img/startbucks.svg'" alt="Starbucks logo" width="48px" height="48px" />
 
         <div class="company-info">
-          <div class="company-name">{{ $company().name }}</div>
-          <div class="company-brand">{{ $company().brand }}</div>
+          <div class="company-name">{{ company.name }}</div>
+          <div class="company-brand">{{ company.brand }}</div>
         </div>
 
         <img src="assets/icons/chevron-right.svg" alt="Chevron right" width="8.2px" height="14px" />
@@ -56,8 +57,6 @@ import { Component, signal } from '@angular/core';
   ],
 })
 export class Header {
-  readonly $company = signal({
-    name: 'AMREST BULGARIA LTD',
-    brand: 'Starbucks',
-  });
+  private ls = inject(LocalStorageService);
+  readonly company = this.ls.getCompany();
 }

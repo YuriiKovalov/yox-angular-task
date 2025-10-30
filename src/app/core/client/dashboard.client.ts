@@ -4,10 +4,8 @@ import { forkJoin } from 'rxjs';
 
 import {
   CandidateStat,
-  Company,
   RequestionsPayload,
   RequisitionData,
-  User,
   WorkplacesSummary,
 } from '../models/dashboard.models';
 
@@ -16,14 +14,6 @@ import {
 })
 export class DashboardClient {
   private http = inject(HttpClient);
-
-  getUser() {
-    return this.http.get<User>('/api/user');
-  }
-
-  getCompany() {
-    return this.http.get<Company>('/api/company');
-  }
 
   getCandidates() {
     return this.http.get<CandidateStat[]>('/api/candidates');

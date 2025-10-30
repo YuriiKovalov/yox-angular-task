@@ -2,10 +2,8 @@ import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
 
 import {
   CandidateStat,
-  Company,
   RequestionsFilters,
   RequisitionData,
-  User,
   WorkplacesSummary,
 } from '../models/dashboard.models';
 import {
@@ -19,8 +17,6 @@ type State = {
   candidates: Array<CandidateStat>;
   requisitionData: RequisitionData | null;
   workplaces: WorkplacesSummary | null;
-  user: User | null;
-  company: Company | null;
   requestionsFilters: RequestionsFilters;
   isLoading: boolean;
   error: string | null;
@@ -37,8 +33,6 @@ const initialState: State = {
   candidates: [],
   requisitionData: null,
   workplaces: null,
-  user: null,
-  company: null,
   requestionsFilters: initialRequestionsFilters,
   isLoading: false,
   error: null,
@@ -55,12 +49,6 @@ export const DashboardStore = signalStore(
     },
     updateCandidates(candidates: Array<CandidateStat>) {
       patchState(store, { candidates });
-    },
-    updateUser(user: User) {
-      patchState(store, { user });
-    },
-    updateCompany(company: Company) {
-      patchState(store, { company });
     },
     updateRequestionsFilters(requestionsFilters: RequestionsFilters) {
       patchState(store, { requestionsFilters });

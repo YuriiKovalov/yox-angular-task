@@ -11,8 +11,6 @@ export class DashboardFacade {
   private readonly store = inject(DashboardStore);
   private readonly destroyRef = inject(DestroyRef);
 
-  readonly $user = this.store.user;
-  readonly $company = this.store.company;
   readonly $candidates = this.store.candidates;
   readonly $requisitionData = this.store.requisitionData;
   readonly $workplaces = this.store.workplaces;
