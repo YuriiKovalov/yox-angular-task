@@ -35,6 +35,7 @@ export class DashboardFacade {
         this.store.updateRequisitions(data.requisitions);
         this.store.updateWorkplaces(data.workplaces);
       }),
+      finalize(() => this.store.updateLoader(false)),
     );
   }
 
