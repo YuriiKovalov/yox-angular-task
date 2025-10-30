@@ -12,9 +12,13 @@
     <ng-container matColumnDef="role">
       <th mat-header-cell *matHeaderCellDef>Role</th>
       <td mat-cell *matCellDef="let req">
-        <div class="role">
-          <strong>{{ req.role }}</strong>
-          <div class="status" [ngClass]="req.statusType">{{ req.status }}</div>
+        <div class="cell-container">
+          <div [class.inactive]="!req.active" class="cell-content">
+            <h3 class="name">
+              <strong>{{ req.role }}</strong>
+            </h3>
+            <p class="status" [ngClass]="req.statusType">{{ req.status }}</p>
+          </div>
         </div>
       </td>
     </ng-container>
@@ -23,10 +27,12 @@
     <ng-container matColumnDef="workplace">
       <th mat-header-cell *matHeaderCellDef>Workplace</th>
       <td mat-cell *matCellDef="let req">
-        <div class="workplace">
+        <div class="cell-container">
           <img src="assets/icons/location.svg" alt="Location Icon" />
-          <div class="name">{{ req.workplace.name }}</div>
-          <div class="location">{{ req.workplace.location }}</div>
+          <div [class.inactive]="!req.active" class="cell-content">
+            <a href="#" class="name">{{ req.workplace.name }}</a>
+            <p>{{ req.workplace.location }}</p>
+          </div>
         </div>
       </td>
     </ng-container>
@@ -35,12 +41,11 @@
     <ng-container matColumnDef="shifts">
       <th mat-header-cell *matHeaderCellDef>Shifts</th>
       <td mat-cell *matCellDef="let req">
-        <div class="shifts">
+        <div class="cell-container">
           <img src="assets/icons/shift.svg" alt="Shift Icon" />
-          <div class="text">
-            <b>{{ req.shifts.active }}</b>
-            active
-            <small>from {{ req.shifts.available }} available</small>
+          <div [class.inactive]="!req.active" class="cell-content">
+            <h3>{{ req.shifts.active }} active</h3>
+            <p>from {{ req.shifts.available }} available</p>
           </div>
         </div>
       </td>
@@ -50,7 +55,7 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let req">
-        <img src="assets/icons/arrow-right.svg" alt="Arrow Right Icon" />
+        <a href="#"><img src="assets/icons/arrow-right.svg" alt="Arrow Right Icon" /></a>
       </td>
     </ng-container>
 
